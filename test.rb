@@ -19,8 +19,13 @@ describe "english to pig-latin translation" do
 end
 
 def translate_word(word)
-	match = (first_letter = word[0].match(/[aeiou]/)) ? (word + "way") : (word[1..-1] + word[0] + "ay")
-end
+  vowel_first = word[0].match(/^[aeiou]/)
+  if vowel_first
+    word + "way"
+  else
+    word[1..-1] + word[0] + "ay"
+  end
+end  
 
 def translate_phrase(phrase)
 	phrase.split(' ').map { |word| translate_word(word) }.join(' ')
@@ -30,12 +35,7 @@ def translate_sentence(sentence)
 	sentence.downcase.gsub(/\w+/){|word| translate_word(word)}.capitalize
 end
 
-
-# Longer translate_word method:
+# Single line translate_word method
 # def translate_word(word)
-#	 match = word[0].match(/^[aeiou]/)
-#  if match
-#   word + "way"
-#  else
-#   word[1..-1] + word[0] + "ay"
+#  match = (first_letter = word[0].match(/[aeiou]/)) ? (word + "way") : (word[1..-1] + word[0] + "ay")
 # end
