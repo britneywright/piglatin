@@ -23,21 +23,19 @@ def translate_word(word)
 end
 
 def translate_phrase(phrase)
-	phrase.split(' ').map { |word| translate_word(word) }.join(' ') }
+	phrase.split(' ').map { |word| translate_word(word) }.join(' ')
 end
 
 def translate_sentence(sentence)
-	sentence.downcase.gsub(/\w+/){|word| translate_word(word)}.capitalize }
+	sentence.downcase.gsub(/\w+/){|word| translate_word(word)}.capitalize
 end
 
 
 # Longer translate_word method:
 # def translate_word(word)
 #	 match = word[0].match(/^[aeiou]/)
-#	 if match
-#	 	word + "way"
-#	 else
-#	 	word[1..-1] + word[0] + "ay"
+#  if match
+#   word + "way"
+#  else
+#   word[1..-1] + word[0] + "ay"
 # end
-
-
